@@ -10,6 +10,7 @@
 [![Open-Meteo](https://img.shields.io/badge/Data-Open--Meteo-2A7DE1)](https://open-meteo.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-43A047.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/status-active-22A06B)](#project-status)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20Nimbus-FF4B4B?logo=streamlit&logoColor=white)](https://weatherforecastprediction-bvmarb4uzsu8z6jn9hb2pj.streamlit.app/)
 
 </div>
 
@@ -29,6 +30,10 @@ Nimbus replaces the original ten-row sample dataset with a live, reproducible hi
 - export the source observations as CSV.
 
 No API key is required.
+
+## Live application
+
+Nimbus is deployed on Streamlit Community Cloud. **[Launch the live weather dashboard →](https://weatherforecastprediction-bvmarb4uzsu8z6jn9hb2pj.streamlit.app/)**
 
 ## Interface tour
 
