@@ -1,9 +1,12 @@
 """Capture README screenshots from a running Nimbus Streamlit server."""
+import os
+import sys
 from pathlib import Path
 from playwright.sync_api import Error, sync_playwright
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "assets" / "screenshots"
+APP_URL = sys.argv[1] if len(sys.argv) > 1 else os.getenv("NIMBUS_URL", "http://127.0.0.1:8502")
 OUTPUT.mkdir(parents=True, exist_ok=True)
 
 with sync_playwright() as playwright:
@@ -12,7 +15,7 @@ with sync_playwright() as playwright:
     except Error:
         browser = playwright.chromium.launch(headless=True)
     page = browser.new_page(viewport={"width": 1440, "height": 1100}, device_scale_factor=1)
-    page.goto("http://127.0.0.1:8502", wait_until="domcontentloaded")
+    page.goto(APP_URL, wait_until="domcontentloaded")
     page.get_by_role("heading", name="New York, United States").wait_for(timeout=60_000)
     page.wait_for_timeout(2_000)
     page.screenshot(path=OUTPUT / "dashboard-overview.png")
